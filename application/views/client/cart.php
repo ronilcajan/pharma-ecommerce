@@ -137,15 +137,16 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <?php if ($pres > 0) : ?>
-                                    <small class="text-danger"><i>*Please upload prescription</i></small>
-                                    <button class="btn btn-primary btn-lg btn-block">Proceed To
-                                        Checkout</button>
-                                <?php else : ?>
-                                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='<?= site_url('checkout') ?>'">Proceed To
-                                        Checkout</button>
+                                <?php if (!empty($cart[0]->name)) : ?>
+                                    <?php if ($pres > 0) : ?>
+                                        <small class="text-danger"><i>*Please upload prescription</i></small>
+                                        <button class="btn btn-primary btn-lg btn-block">Proceed To
+                                            Checkout</button>
+                                    <?php else : ?>
+                                        <button class="btn btn-primary btn-lg btn-block" onclick="window.location='<?= site_url('checkout') ?>'">Proceed To
+                                            Checkout</button>
+                                    <?php endif ?>
                                 <?php endif ?>
-
                             </div>
                         </div>
                     </div>

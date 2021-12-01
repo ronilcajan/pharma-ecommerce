@@ -93,6 +93,15 @@ $current_page = $this->uri->segment(1);
             text-decoration: none;
             cursor: pointer;
         }
+
+        #search-container {
+            transition: transform .2s;
+        }
+
+        #search-container:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.01);
+        }
     </style>
 </head>
 
@@ -106,8 +115,8 @@ $current_page = $this->uri->segment(1);
             <div class="search-wrap">
                 <div class="container">
                     <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
-                    <form action="#" method="post">
-                        <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+                    <form action="<?= site_url('search') ?>" method="post">
+                        <input type="text" class="form-control" name="search" placeholder="Search product name and hit enter...">
                     </form>
                 </div>
             </div>
@@ -152,6 +161,7 @@ $current_page = $this->uri->segment(1);
                         </nav>
                     </div>
                     <div class="icons">
+                        <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
                         <?php if ($this->ion_auth->logged_in()) : ?>
                             <!-- <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a> -->
                             <a href="<?= site_url('cart') ?>" class="icons-btn d-inline-block bag">

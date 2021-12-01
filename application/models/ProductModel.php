@@ -49,6 +49,14 @@ class ProductModel extends CI_Model
         $query = $this->db->get('user_order');
         return $query->row();
     }
+
+    public function search($data)
+    {
+        $this->db->like('name', $data);
+        $this->db->or_like('description', $data);
+        $query = $this->db->get('products');
+        return $query->result();
+    }
     public function mycart($id)
     {
         $this->db->select('*, order_products.id as id, products.id as product_id, user_order.id as user_order_id');

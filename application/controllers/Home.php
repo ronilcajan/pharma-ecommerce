@@ -209,6 +209,14 @@ class Home extends CI_Controller
             redirect($_SERVER['HTTP_REFERER'], 'refresh');
         }
     }
+    public function search()
+    {
+        $data['title'] = 'Search Page';
+        $data['searched'] = $this->productModel->search($this->input->post('search'));
+        $this->session->set_flashdata('search_text', $this->input->post('search'));
+
+        $this->base->load('client', 'client/search_page', $data);
+    }
     public function thankyou()
     {
 
