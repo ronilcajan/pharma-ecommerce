@@ -27,8 +27,9 @@ class Settings extends CI_Controller
 
         $prefs = array(
             'format'      => 'zip',
-            'filename'    => 'loanapp.sql',
+            'filename'    => 'pharma.sql',
             'ignore'        => array('users', 'groups', 'users_groups', 'login_attempts'),
+            'foreign_key_checks' => FALSE,
         );
 
         $backup = $this->dbutil->backup($prefs);
@@ -62,8 +63,11 @@ class Settings extends CI_Controller
             $array_query = explode(';', $sql);
 
             foreach ($array_query as $query) {
-                $this->db->query($query);
+                if (trim($query) != "" && trim($query)  != ';') {
+                    $this->db->query($query);
+                }
             }
+            $this->session->set_flashdata('success', 'success');
             $this->session->set_flashdata('message', 'Database Restored!');
         }
 
