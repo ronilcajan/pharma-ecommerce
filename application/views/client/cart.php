@@ -70,7 +70,7 @@
                                                 <small><i>*Presciption not required</small>
                                             <?php endif ?>
                                         </td>
-                                        <td>P <?= $row->price_2 != '0' ? number_format($row->price_2, 2) : number_format($row->price, 2) ?></td>
+                                        <td>P<?= $row->price_2 != '0' ? number_format($row->price_2 * $row->quantity, 2)  : number_format($row->price * $row->quantity, 2) ?></td>
                                         <td>
                                             <?php if ($row->prescription == 1) : ?>
                                                 <button class="btn btn-primary height-auto btn-sm" title="Upload Prescription" id="myBtn" type='button' data-product="<?= $row->product_id ?>" data-order="<?= $row->user_order_id ?>">+</button>

@@ -218,7 +218,6 @@ class Auth extends CI_Controller
 				'value' => $this->form_validation->set_value('password_confirm'),
 			];
 
-
 			$this->base->load('client', 'auth/create_user', $this->data);
 		}
 	}

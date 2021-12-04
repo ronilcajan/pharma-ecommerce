@@ -15,7 +15,7 @@
                                                 <?php echo form_input($first_name); ?>
                                           </div>
                                           <div class="col-md-6">
-                                                <label for="c_lname" class="text-black"><?php echo lang('create_user_fname_label', 'last_name'); ?> <span class="text-danger">*</span></label>
+                                                <label for="c_lname" class="text-black"><?php echo lang('create_user_lname_label', 'last_name'); ?> <span class="text-danger">*</span></label>
                                                 <?php echo form_input($last_name); ?>
                                           </div>
                                     </div>
